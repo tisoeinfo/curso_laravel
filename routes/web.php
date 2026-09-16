@@ -35,4 +35,7 @@ use App\Http\Controllers\ClienteController;
 //     $clientes = DB::select('SELECT * FROM clientes');
 //     return response()->json($clientes);
 // });
-Route::get('/api/clientes', [ClienteController::class, 'index']);
+
+// Route::get('/api/clientes', [ClienteController::class, 'index']);
+// Route::get('/api/clientes/{id}', [ClienteController::class, 'show']);
+// Route::post('/api/clientes', [ClienteController::class, 'store']);
