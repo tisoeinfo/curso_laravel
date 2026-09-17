@@ -50,4 +50,27 @@ class ClienteController extends Controller
             'mensaje' => 'Cliente registrado correctamente'
         ]);
     }
+
+    public function update(Request $request, $p_id_cliente)
+    {
+        $this->cliente->actualizar(
+            $p_id_cliente,
+            $request->nombre,
+            $request->email,
+            $request->telefono
+        );
+
+        return response()->json([
+            'mensaje' => 'Cliente actualizado correctamente'
+        ]);
+    }
+    
+    public function destroy($p_id_cliente)
+    {
+        $this->cliente->eliminar($p_id_cliente);
+
+        return response()->json([
+            'mensaje' => 'Cliente eliminado correctamente'
+        ]);
+    }
 }

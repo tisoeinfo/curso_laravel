@@ -38,9 +38,9 @@ class Cliente
     {
         return DB::insert(
             "
-        INSERT INTO clientes (nombre, email, telefono)
-        VALUES (:nombre, :email, :telefono)
-        ",
+            INSERT INTO clientes (nombre, email, telefono)
+            VALUES (:nombre, :email, :telefono)
+            ",
             [
                 'nombre' => $p_nombre,
                 'email' => $p_email,
@@ -49,6 +49,33 @@ class Cliente
         );
     }
 
+    public function actualizar($p_id_cliente, $p_nombre, $p_email, $p_telefono)
+    {
+        return DB::update(
+            "
+            UPDATE clientes SET nombre = :nombre, email = :email, telefono = :telefono
+            WHERE id_cliente = :id
+            ",
+            [
+                'id' => $p_id_cliente,
+                'nombre' => $p_nombre,
+                'email' => $p_email,
+                'telefono' => $p_telefono
+            ]
+        );
+    }
+
+    public function eliminar($p_id_cliente)
+    {
+        return DB::delete(
+            "
+            DELETE FROM clientes WHERE id_cliente = :id
+            ",
+            [
+                'id' => $p_id_cliente
+            ]
+        );
+    }
     // listar()	Ejecutar SELECT de todos
     // buscar()	Ejecutar SELECT por ID
     // insertar()	Ejecutar INSERT
